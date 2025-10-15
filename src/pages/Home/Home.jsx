@@ -57,10 +57,12 @@ export const Home = () => {
           endMessage={<p className="alert-text">You have seen it all</p>}
         >
           <main className="main d-flex align-center wrap gap-larger">
-            {hotels &&
-              hotels.map((hotel) => (
-                <HotelCard key={hotel._id} hotel={hotel} />
-              ))}
+            {
+              hotels &&
+                hotels.map((hotel) => (
+                  <HotelCard key={hotel._id} hotel={hotel} />
+                ))
+            }
           </main>
         </InfiniteScroll>
       ) : (
