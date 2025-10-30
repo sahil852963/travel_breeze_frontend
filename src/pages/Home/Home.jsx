@@ -2,29 +2,30 @@ import { Fragment, useState, useEffect } from "react";
 import axios from "axios";
 import "./Home.css";
 import InfiniteScroll from "react-infinite-scroll-component";
-
-import { Navbar, HotelCard } from "../../components";
+import { useCategory } from "../../context";
+import { Navbar, HotelCard, Categories } from "../../components";
 
 export const Home = () => {
   const [hotels, setHotels] = useState([]);
   const [hasMore, setHasMore] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(16);
   const [testData, setTestData] = useState();
+  const { hotelCategory } = useCategory();
 
   useEffect(() => {
     (async () => {
       try {
         const { data } = await axios.get(
-          "https://travel-breeze.onrender.com/api/hotels"
+          `https://travel-breeze.onrender.com/api/hotels?category=${hotelCategory}`
         );
-        setTestData(data);
+        setTestData(data); 
         setHotels(data ? data.slice(0, 16) : []);
         // console.log(data);
       } catch (err) {
         console.log(err);
       }
-    })();
-  }, []);
+    })(); 
+  }, [hotelCategory]);
 
   const fetchMoreData = () => {
     if (hotels.length >= testData.length) {
@@ -46,6 +47,7 @@ export const Home = () => {
   return (
     <Fragment>
       <Navbar />
+      <Categories />
       {hotels && hotels.length > 0 ? (
         <InfiniteScroll
           dataLength={hotels.length}
