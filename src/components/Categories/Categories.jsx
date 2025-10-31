@@ -20,7 +20,8 @@ export const Categories = () => {
     const handleCategoryClick = (category) => {
         setHotelCategory(category)
     }
-    console.log("hotelCategory is - ", hotelCategory)
+    // alert(hotelCategory);
+    // console.log("hotelCategory is - ", hotelCategory)
 
     useEffect(() => {
         (async () => {

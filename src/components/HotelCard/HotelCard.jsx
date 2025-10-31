@@ -1,11 +1,19 @@
+import { useNavigate } from "react-router-dom";
 import "./HotelCard.css";
 
 export const HotelCard = ({ hotel }) => {
   const { _id, name, image, rating, price, address, city, state } = hotel;
+
+  const navigate = useNavigate();
+
+  const onSingleHotelCardClick = () => {
+    navigate(`hotel/${name}/${address}-${state}/${_id}/reserve`)
+  }
+  
   // console.log(image)
   return (
     <div className="relative hotelcard-container shadow cursor-pointer">
-      <div>
+      <div onClick={onSingleHotelCardClick}>
         <img className="img" src={image} alt={name} />
         <div className="hotelcard-details">
           <div className="d-flex align-center">
@@ -32,10 +40,4 @@ export const HotelCard = ({ hotel }) => {
   );
 };
 
-// Just checked linked in medi cloud and since 2 weeks nothing has been posted anymore … I know linked in updated api, please check
-
-
-// I’ve checked the issue and found that due to recent updates in the LinkedIn API, the connection between the company page and the plugin is no longer active. There’s also a warning in the admin panel stating that the plugin will stop working after 2nd November.
-
-// We need to re-authenticate the plugin to restore the connection so it can start posting again. Although the message mentions 2nd November, LinkedIn has already restricted the old tokens’ permissions for posting on company pages, which is why it stopped working earlier.
 
