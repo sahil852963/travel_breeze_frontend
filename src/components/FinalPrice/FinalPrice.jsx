@@ -36,6 +36,7 @@ export const FinalPrice = ({ singleHotel }) => {
                     Reserve
                 </button>
             </div>
+            
 
             <div className="price-distribution d-flex direction-column">
                 <div className="final-price d-flex align-center justify-space-between">

@@ -15,7 +15,7 @@ export const SingleHotel = () => {
                 const {data} = await axios.get(`https://travel-breeze.onrender.com/api/hotels/${id}`);
                 setSingleHotel(data);
             } catch(err){
-                console.log(err)
+                console.log(err);
             }
         })()
     }, [id]);

@@ -15,13 +15,13 @@ export const HotelCard = ({ hotel }) => {
 		<div className="relative hotelcard-container shadow cursor-pointer">
 			<div onClick={onSingleHotelCardClick}>
 				<img className="img" src={image} alt={name} />
-				<div className="hotelcard-details">
+				<div className="hotelcard-details"> 
 					<div className="d-flex align-center">
 						<span className="location">
 							{address}, {state}
 						</span>
 						<span className="rating d-flex align-center">
-							<span class="material-icons-outlined">star</span>
+							<span className="material-icons-outlined">star</span>
 							<span>{rating}</span>
 						</span>
 					</div>
